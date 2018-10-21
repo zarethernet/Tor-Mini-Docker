@@ -1,3 +1,4 @@
+UseBridges 1
 DataDirectory /var/lib/tor
 SocksPort 0.0.0.0:9150
 SocksPolicy accept 172.17.0.0/16
@@ -8,4 +9,9 @@ CircuitBuildTimeout 5
 KeepalivePeriod 60
 NewCircuitPeriod 15
 NumEntryGuards 8
+Exitpolicy reject *:*
+ExtORPort auto
 ExcludeExitNodes {RU}, {UA}, {BY}
+bridge obfs3 62.97.165.104:34953 C094ADE4C7491477F2D402E5F9B1164B86E72937
+bridge obfs3 54.226.46.29:40872 769FD4B52E3286132CE00F1983F8B69EF5996A22
+ClientTransportPlugin obfs3 exec /usr/bin/obfsproxy managed
